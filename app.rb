@@ -16,7 +16,6 @@ require 'chronic'
 require 'mail'
 require 'assert'
 
-#ugh ugh
 
 class ToDo < Sinatra::Base
     
