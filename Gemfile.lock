@@ -32,6 +32,11 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.6.1)
     minitest (5.7.0)
+    minitest-reporters (1.0.17)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
     rack (1.6.2)
@@ -40,6 +45,7 @@ GEM
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (10.4.2)
+    ruby-progressbar (1.7.5)
     shotgun (0.9.1)
       rack (>= 1.0)
     sinatra (1.4.6)
@@ -68,6 +74,7 @@ DEPENDENCIES
   dotenv
   humanize_boolean
   mail
+  minitest-reporters
   puma
   rack-test
   rake
