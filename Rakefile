@@ -14,3 +14,12 @@ end
 
 task default: :test
 
+namespace :db do
+  desc "migrate that database"
+  task :migrate do
+    require 'bundler'
+    Bundler.require
+    require './config/environment'
+    ActiveRecord::Migrator.migrate('db/migrate')
+  end
+end

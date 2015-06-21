@@ -14,7 +14,7 @@ require 'chronic'
 require 'assert'
 require 'tilt/erb'
 
-class ToDo < Sinatra::Base
+class TodoApp < Sinatra::Base
     
   configure do
       register Sinatra::Flash

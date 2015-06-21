@@ -1,23 +1,6 @@
 # test.rb
 require './test/test_helper'
-
-db_options = {adapter: 'sqlite3', database: 'todo_test'}
-ActiveRecord::Base.establish_connection(db_options)
-
-
-class CreateToDo < ActiveRecord::Migration
-  def change
-    create_table :todos do |t|
-      t.string :todo_description
-    end
-  end
-end
-
-begin
-  CreateToDo.new.change
-rescue ActiveRecord::StatementInvalid
-  # might work
-end
+require './config/environment'
 
 
 class Todo < ActiveRecord::Base
@@ -29,7 +12,7 @@ class TodoTest < MiniTest::Test
   include Rack::Test::Methods
 
   def app
-    ToDo
+    TodoApp
   end
   
   def test_exists
