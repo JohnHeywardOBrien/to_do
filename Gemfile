@@ -10,7 +10,6 @@ gem 'mail'
 gem 'assert'
 gem 'assert-rack-test'
 gem 'minitest-reporters'
-
 gem 'activerecord'
 
 gem 'sinatra-activerecord'
