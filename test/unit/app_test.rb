@@ -12,8 +12,13 @@ class TodoTest < MiniTest::Test
   end
   
   def test_exists
-    todo = Todo.new(:todo_description => 'a new todo')
-    assert_equal 'a new todo', todo.todo_description
+    assert_equal 0, Todo.count # guard clause to make sure we're using clean db
+    Todo.transaction do
+      Todo.create(:todo_description => 'a new todo')
+      assert_equal 1, Todo.count
+      raise ActiveRecord::Rollback
+    end
+    assert_equal 0, Todo.count
   end
   
   def test_hello_world
