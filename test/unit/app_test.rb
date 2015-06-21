@@ -3,10 +3,6 @@ require './test/test_helper'
 require './config/environment'
 
 
-class Todo < ActiveRecord::Base
-end
-
-
 class TodoTest < MiniTest::Test
 
   include Rack::Test::Methods

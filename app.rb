@@ -14,6 +14,8 @@ require 'chronic'
 require 'assert'
 require 'tilt/erb'
 
+require './lib/models/todo'
+
 class TodoApp < Sinatra::Base
     
   configure do
@@ -27,7 +29,8 @@ class TodoApp < Sinatra::Base
 
     erb :index
   end
-
+  
+  # new todo
   get '/new' do
     
     erb :new
