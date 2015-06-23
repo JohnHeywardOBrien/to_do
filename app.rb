@@ -16,6 +16,8 @@ require 'tilt/erb'
 
 require './lib/models/todo'
 
+# steven is a butt
+
 class Todo 
   def description
     "This is a test"
