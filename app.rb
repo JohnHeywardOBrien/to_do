@@ -16,6 +16,10 @@ require 'tilt/erb'
 
 require './lib/models/todo'
 
+class NewTodo
+
+end
+
 
 class TodoApp < Sinatra::Base
     
@@ -25,13 +29,13 @@ class TodoApp < Sinatra::Base
       enable :sessions
   end
   
-  # index
+  # index page
   get '/' do 
 
     erb :index
   end
   
-  # new todo
+  # new todo page
   get '/new' do
     
     erb :new

@@ -2,7 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 require 'rake/testtask'
 
-ROOT_PATH = File.expand_path('../app', __FILE__)
+ROOT_PATH = File.expand_path('../../app', __FILE__)
 $LOAD_PATH.unshift(ROOT_PATH)
 
 require 'sinatra/activerecord'

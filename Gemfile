@@ -18,6 +18,10 @@ gem 'humanize_boolean'
 gem 'chronic' 
 gem 'rack-test'
 
+group :test do
+  gem 'rack-test', require: false
+end
+
 group :development, :test do
   gem 'sqlite3'
 end
