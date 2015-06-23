@@ -16,6 +16,13 @@ require 'tilt/erb'
 
 require './lib/models/todo'
 
+class Todo 
+  def description
+    "This is a test"
+  end
+  
+  
+end
 
 
 class TodoApp < Sinatra::Base
@@ -25,6 +32,8 @@ class TodoApp < Sinatra::Base
       set :method_over, true
       enable :sessions
   end
+  
+
   
   # index page
   get '/' do 

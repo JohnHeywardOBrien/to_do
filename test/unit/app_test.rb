@@ -20,16 +20,14 @@ class DatabaseTest < MiniTest::Test
   def test_database_trans
     assert_equal 0, Todo.count # guard clause to make sure we're using clean db
     Todo.transaction do
-      Todo.create(:todo_description => 'ugh ugh ugh')
+      Todo.create(:body => 'ugh ugh ugh')
       assert_equal 1, Todo.count
       raise ActiveRecord::Rollback
     end
     assert_equal 0, Todo.count
   end
-  
-
-
 end
+
 
 class SinatraTest < MiniTest::Test
 
@@ -39,6 +37,11 @@ class SinatraTest < MiniTest::Test
     TodoApp
   end
   
+  def setup
+    @todo = TodoApp.new
+  end
+  
+
   def test_index_page
     get '/'
     assert last_response.ok?
@@ -50,25 +53,31 @@ class SinatraTest < MiniTest::Test
     assert last_response.ok?
     assert_equal "New todo here", last_response.body
   end
-  
-  
 end
+
 
 class NewTodoTest < MiniTest::Test
 
   include Rack::Test::Methods
-
+  
   def app
     TodoApp
   end
   
   def setup
-    @new_todo = Todo.new
-    @new_todo = "This is a string"
-  end
-   
-  def test_new_todo
-    assert_equal @new_todo, "This is a !string"
+    @todo = Todo.new
+    @todo.title = "New todo"
+    @todo.body = "about todo"
+    # @todo.completed = 
   end
   
+  def test_description
+    assert_equal "This is a test", @todo.description
+  end
+  
+  def test_its_attributes
+    assert_equal "New todo", @todo.title
+    assert_equal "about todo", @todo.body
+  end
+
 end
