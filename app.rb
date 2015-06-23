@@ -16,9 +16,6 @@ require 'tilt/erb'
 
 require './lib/models/todo'
 
-class NewTodo
-
-end
 
 
 class TodoApp < Sinatra::Base

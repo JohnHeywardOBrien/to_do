@@ -3,6 +3,10 @@ require './test/test_helper'
 require './config/environment'
 
 # need to further break up these tests
+# ugh
+
+
+
 
 class DatabaseTest < MiniTest::Test
 
@@ -64,7 +68,7 @@ class NewTodoTest < MiniTest::Test
   end
    
   def test_new_todo
-    assert_equal @new_todo, "This is a string"
+    assert_equal @new_todo, "This is a !string"
   end
   
 end
