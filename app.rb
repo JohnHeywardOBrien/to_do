@@ -23,12 +23,16 @@ class Todo
     "This is a test"
   end
 
-  def NewTodo
-    self.new
-  end
-  
 end
 
+
+
+
+# GET /todos            Retrieves a list of all todo items in the database
+# GET /todos/index      Retrieves a single todo item from the database
+# POST /todos           Inserts a todo item in the database
+# PUT /todos            Updates a todo item in the database
+# DELETE /todos         Deletes a todo item from the database
 
 class TodoApp < Sinatra::Base
     
@@ -38,18 +42,30 @@ class TodoApp < Sinatra::Base
       enable :sessions
   end
   
-
   
   # index page
   get '/' do 
-
+    @todos = Todo.order("created_at DESC")
     erb :index
   end
   
   # new todo page
-  get '/new' do
+  get '/todos' do
     
     erb :new
   end
+ 
+  # adds todo to database 
+  post '/todos' do
+    
+  end
+  
+  # updates a todo in the database 
+  puts '/todos' do
+  
+  end
+  
+  # deletes todo from database
+  # destroy 
 end
  
