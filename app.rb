@@ -22,7 +22,10 @@ class Todo
   def description
     "This is a test"
   end
-  
+
+  def NewTodo
+    self.new
+  end
   
 end
 

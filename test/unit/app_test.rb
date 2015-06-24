@@ -37,11 +37,6 @@ class SinatraTest < MiniTest::Test
     TodoApp
   end
   
-  def setup
-    @todo = TodoApp.new
-  end
-  
-
   def test_index_page
     get '/'
     assert last_response.ok?
@@ -65,10 +60,13 @@ class NewTodoTest < MiniTest::Test
   end
   
   def setup
+    @new_todo = "new todo"
+    @todo_title = "about todo"
+
+  
     @todo = Todo.new
-    @todo.title = "New todo"
-    @todo.body = "about todo"
-    # @todo.completed = 
+    @todo.title = @new_todo
+    @todo.body = @todo_title
   end
   
   def test_description
@@ -76,8 +74,15 @@ class NewTodoTest < MiniTest::Test
   end
   
   def test_its_attributes
-    assert_equal "New todo", @todo.title
+    assert_equal "new todo", @todo.title
     assert_equal "about todo", @todo.body
   end
+ 
+  # need to work on figuring out how to test Date... :/
+  # def test_date
+    # date = Date.new(1912, 6, 23)
+    # assert_equal "1912-06-23", date.sys_strftime
+  # end
+
 
 end
