@@ -83,6 +83,19 @@ class NewTodoTest < MiniTest::Test
     # date = Date.new(1912, 6, 23)
     # assert_equal "1912-06-23", date.sys_strftime
   # end
-
-
+  
+  # i guess this could be considered a duplicate of the above?
+  def test_its_data
+    data = {:title => 'George',
+            :body => 'Washington',
+            :completed => '2015-04-07',
+            :created => '2015-03-01'
+    }
+    
+    todo = Todo.new(data)
+    assert_equal data[:title], todo.title
+    assert_equal data[:body], todo.body
+    assert_equal data[:completed], todo.completed.to_s
+    assert_equal data[:created], todo.created.to_s
+  end
 end
