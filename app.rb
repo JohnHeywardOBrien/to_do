@@ -45,14 +45,15 @@ class TodoApp < Sinatra::Base
   
   # index page
   get '/' do 
-    @todos = Todo.order("created_at DESC")
+    
     erb :index
   end
   
   # new todo page
   get '/todos' do
+    @todos = Todo.order("created_at DESC")
     
-    erb :new
+    erb :todos
   end
  
   # adds todo to database 

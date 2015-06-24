@@ -10,6 +10,10 @@ class SinatraTest < MiniTest::Test
     TodoApp
   end
   
+  def setup
+    @todos = Todo.all
+  end
+  
   def test_index_page
     get '/'
     assert last_response.ok?
@@ -19,6 +23,6 @@ class SinatraTest < MiniTest::Test
   def test_new_page
     get '/todos'
     assert last_response.ok?
-    assert_equal "New todo here", last_response.body
+    assert_equal "#{@todos}", last_response.body
   end
 end
