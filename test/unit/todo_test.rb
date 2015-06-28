@@ -19,6 +19,10 @@ class NewTodoTest < MiniTest::Test
     @todo = Todo.new
     @todo.title = @new_todo
     @todo.body = @todo_title
+    
+    @save = @todo.save
+    @todo_last = Todo.last
+    @delete = @todo_last.destroy
   end
   
   def test_description
@@ -44,4 +48,13 @@ class NewTodoTest < MiniTest::Test
     assert_equal data[:completed], todo.completed.to_s
     assert_equal data[:created], todo.created.to_s
   end
+  
+  def test_it_saves_correctly
+    assert @save == true 
+  end
+  
+  def test_it_destroys_correctly
+    assert @delete == true
+  end
+
 end
