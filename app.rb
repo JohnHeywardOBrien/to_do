@@ -70,3 +70,20 @@ class TodoApp < Sinatra::Base
   # destroy 
 end
  
+ 
+ 
+class Kelly
+  attr_accessor :free, :not_free, :here
+  
+  def is_free
+    "Woo! #{free}"
+  end
+  
+  def is_not_free
+    ":( #{not_free}"
+  end
+  
+  def here_or_not
+    "I am #{here}"
+  end
+end
