@@ -47,8 +47,18 @@ def handle_no
   puts "Sad. Next week it is!"
 end
 
-while input = gets.chomp
-  break handle_yes if input == 'yes'
-  break handle_no  if input == 'no'
+def handle_maybe
+  puts "Maybe, eh? Just let me know when is good for you!"
+end
+
+def handle_quit
+  puts "Goodbye"
+end
+
+while input = gets.chomp.upcase
+  break handle_yes if %w[YES Y].include?(input)
+  break handle_no if %w[N NO].include?(input)
+  break handle_maybe if %w[MAYBE].include?(input)
+  break handle_quit if %w[Q QUIT EXIT].include?(input)
   puts "That does not compute! Try again: yes/no? "
 end
