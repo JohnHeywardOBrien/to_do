@@ -16,7 +16,6 @@ require 'tilt/erb'
 
 require './lib/models/todo'
 
-# steven is a butt
 
 class Todo 
   def description
@@ -51,7 +50,7 @@ class TodoApp < Sinatra::Base
   
   # new todo page
   get '/todos' do
-    @todos = Todo.order("created_at DESC")
+    @todos = Todo.order("created_at DESC") 
     @header_message = @todos.length == 0 ? "You don't have todos!" : "Here are your todos:"
     
     erb :todos
