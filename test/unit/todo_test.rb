@@ -12,17 +12,13 @@ class NewTodoTest < MiniTest::Test
   end
   
   def setup
-    @new_todo = "new todo"
-    @todo_title = "about todo"
-
-  
     @todo = Todo.new
-    @todo.title = @new_todo
-    @todo.body = @todo_title
+    @todo.title = 'some title'
+    @todo.body  = 'some body'
+
     @todo_all = Todo.all
+    # @all_todos = Todo.all
      
-    @save = @todo.save
-    @todo_last = Todo.last
     @header_message = "Here are your todos:"
   end
  
@@ -30,13 +26,16 @@ class NewTodoTest < MiniTest::Test
     @todo.destroy!
   end
   
-  def test_description
-    assert_equal "This is a test", @todo.description
+  def test_know_its_attributes
+    assert_respond_to @todo, :title
+    assert_respond_to @todo, :body
+    assert_respond_to @todo, :completed
+    assert_respond_to @todo, :created
   end
   
   def test_its_attributes
-    assert_equal "new todo", @todo.title
-    assert_equal "about todo", @todo.body
+    assert_equal "some title", @todo.title
+    assert_equal "some body",  @todo.body
   end
  
   # i guess this could be considered a duplicate of the above?
@@ -55,12 +54,13 @@ class NewTodoTest < MiniTest::Test
   end
   
   def test_it_saves_correctly
-    assert @save == true 
+    assert @todo.save
   end
   
   def test_it_destroys_correctly
+    @todo.save!
     count_before_destroy = Todo.count
-    @todo_last.destroy!
+    Todo.last.destroy!
     count_after_destroy = Todo.count
     refute_equal count_before_destroy, count_after_destroy
   end

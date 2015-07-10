@@ -5,11 +5,9 @@ require './config/environment'
 
 class DatabaseTest < MiniTest::Test
 
-  include Rack::Test::Methods
-
-  def app
-    TodoApp
-  end
+  # def app
+  #   TodoApp
+  # end
   
   # learning about testing writes to a database
   def test_database_trans

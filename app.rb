@@ -16,17 +16,6 @@ require 'tilt/erb'
 
 require './lib/models/todo'
 
-
-class Todo 
-  def description
-    "This is a test"
-  end
-
-end
-
-
-
-
 # GET /todos            Retrieves a list of all todo items in the database
 # GET /todos/index      Retrieves a single todo item from the database
 # POST /todos           Inserts a todo item in the database
@@ -41,12 +30,32 @@ class TodoApp < Sinatra::Base
       enable :sessions
   end
   
-  
   # index page
   get '/' do 
-    
+    # this is a route handler block - no business in here b/c it is
+    # really hard to unit test
+    # instead create view models, put all business logic in that
+    # then unit test the view models
+    @view = IndexPage.new('Hi There John!', '/todos#awesome')
     erb :index
   end
+
+  # view model - put all business logic in these
+  class IndexPage
+    attr_reader :heading, :todos_index_url
+    
+    def initialize(heading, todos_index_url)
+      @heading         = heading
+      @todos_index_url = todos_index_url
+    end
+    
+    def run
+    end
+    
+  end  
+
+
+
   
   # new todo page
   get '/todos' do
