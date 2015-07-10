@@ -52,6 +52,7 @@ class TodoApp < Sinatra::Base
   # new todo page
   get '/todos' do
     @todos = Todo.order("created_at DESC")
+    @header_message = @todos.length == 0 ? "You don't have todos!" : "Here are your todos:"
     
     erb :todos
   end
@@ -66,6 +67,8 @@ class TodoApp < Sinatra::Base
   
   end
   
-  # deletes todo from database
-  # destroy 
+  not_found do
+		status 404
+		erb :not_found
+	end
 end

@@ -19,10 +19,12 @@ class NewTodoTest < MiniTest::Test
     @todo = Todo.new
     @todo.title = @new_todo
     @todo.body = @todo_title
+    @todo_all = Todo.all
      
     @save = @todo.save
     @todo_last = Todo.last
     @delete = @todo_last.destroy
+    @header_message = "Here are your todos:"
   end
  
   # def teardown
@@ -65,5 +67,6 @@ class NewTodoTest < MiniTest::Test
     count_after_destroy = Todo.count
     refute_equal count_before_destroy, count_after_destroy
   end
+  
 
 end
