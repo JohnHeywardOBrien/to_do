@@ -28,7 +28,6 @@ class SinatraTest < MiniTest::Test
     assert last_response.ok?
     assert_equal 200, last_response.status
     assert_equal "test", last_response.body
-    assert_equal "Here are your todos:", last_response.body
     assert true 
   end
   

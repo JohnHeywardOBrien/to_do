@@ -6,6 +6,9 @@ require './config/environment'
 require 'minitest/autorun'
 require 'rack/test'
 require "minitest/reporters"
+require 'active_record'
+require 'sinatra/activerecord'
+
 Minitest::Reporters.use!(
   Minitest::Reporters::ProgressReporter.new,
   ENV,
