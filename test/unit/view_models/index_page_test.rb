@@ -7,4 +7,4 @@ class IndexPageTest < MiniTest::Test
     assert true
   end
   
- end
+end

@@ -15,12 +15,7 @@ require 'assert'
 require 'tilt/erb'
 
 require './lib/models/todo'
-
-# GET /todos            Retrieves a list of all todo items in the database
-# GET /todos/index      Retrieves a single todo item from the database
-# POST /todos           Inserts a todo item in the database
-# PUT /todos            Updates a todo item in the database
-# DELETE /todos         Deletes a todo item from the database
+require './lib/view_models/index_page'
 
 class TodoApp < Sinatra::Base
     

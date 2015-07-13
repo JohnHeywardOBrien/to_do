@@ -11,7 +11,7 @@ gem 'assert'
 gem 'assert-rack-test'
 gem 'minitest-reporters'
 gem 'activerecord'
-
+gem 'minitest-untz'
 gem 'sinatra-activerecord'
 gem 'sinatra-flash'
 gem 'humanize_boolean'

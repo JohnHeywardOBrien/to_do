@@ -4,10 +4,9 @@ $:.unshift File.expand_path("./../../lib", __FILE__)
 ENV['RACK_ENV'] = 'test'
 require './config/environment'
 require 'minitest/autorun'
-require 'rack/test'
 require "minitest/reporters"
-require 'active_record'
-require 'sinatra/activerecord'
+require 'minitest/untz'
+require 'rack/test'
 
 Minitest::Reporters.use!(
   Minitest::Reporters::ProgressReporter.new,

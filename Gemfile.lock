@@ -37,6 +37,8 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    minitest-untz (0.5.0)
+      minitest
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
     rack (1.6.2)
@@ -75,6 +77,7 @@ DEPENDENCIES
   humanize_boolean
   mail
   minitest-reporters
+  minitest-untz
   puma
   rack-test
   rake
