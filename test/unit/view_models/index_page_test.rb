@@ -16,7 +16,7 @@ class IndexPageTest < MiniTest::Test
   end
   
   def test_returns_greeting
-    assert_equal "Hello, #{@name}", IndexPage.greeting
+    assert_equal "Hello, John", IndexPage.greeting
   end
   
   
