@@ -15,7 +15,8 @@ require 'assert'
 require 'tilt/erb'
 
 require './lib/models/todo'
-require './lib/view_models/index_page'
+require './lib/view_models/index/index_page'
+require './lib/models/time'
 
 class TodoApp < Sinatra::Base
     
@@ -31,23 +32,13 @@ class TodoApp < Sinatra::Base
     # really hard to unit test
     # instead create view models, put all business logic in that
     # then unit test the view models
-    @view = IndexPage.new('Hi There John!', '/todos#awesome')
+    @view = IndexPage.new('This is your todo app.', '/todos#awesome', 'John')
     erb :index
   end
 
   # view model - put all business logic in these
-  class IndexPage
-    attr_reader :heading, :todos_index_url
-    
-    def initialize(heading, todos_index_url)
-      @heading         = heading
-      @todos_index_url = todos_index_url
-    end
-    
-    def run
-    end
-    
-  end  
+  # see /lib/view_models/... for actualy location of files
+   
 
 
 
@@ -55,7 +46,6 @@ class TodoApp < Sinatra::Base
   # new todo page
   get '/todos' do
     @todos = Todo.order("created_at DESC") 
-    @header_message = @todos.length == 0 ? "You don't have todos!" : "Here are your todos:"
     
     erb :todos
   end

@@ -26,6 +26,7 @@ class NewTodoTest < MiniTest::Test
     @todo.destroy!
   end
   
+  # this be the real tests, dawg
   def test_know_its_attributes
     assert_respond_to @todo, :title
     assert_respond_to @todo, :body
