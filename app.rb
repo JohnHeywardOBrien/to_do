@@ -32,6 +32,7 @@ class TodoApp < Sinatra::Base
     # really hard to unit test
     # instead create view models, put all business logic in that
     # then unit test the view models
+    @greeting = Greeting.new()
     @view = IndexPage.new('This is your todo app.', '/todos#awesome', 'John')
     erb :index
   end
